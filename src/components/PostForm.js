@@ -1,9 +1,10 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import ImageIcon from "@material-ui/icons/Image";
 import { uploadPostImage } from "../services/post-service";
 import { useHistory } from "react-router-dom";
+import { Link } from 'react-router-dom';
 
-export default function PostForm({ createPost }) {
+export default function PostForm({ createPost, posts }) {
 
   const history = useHistory();
 
@@ -61,8 +62,12 @@ export default function PostForm({ createPost }) {
       history.push("/");
     }
   }
+
+
   return (
+   
     <div style={{marginTop: "10%"}} className="container">
+  
       <form>
           {message && (<p style={{color: 'red'}}>{message}</p>)}
         <input
@@ -102,6 +107,12 @@ export default function PostForm({ createPost }) {
           post
         </button>
       </form>
+
+      {posts.map((post, index) => {
+         return <div key={index}>
+            <Link to={`/${post._id}`}>{post.text}</Link>
+          </div>})}
     </div>
+    
   );
 }

@@ -1,14 +1,16 @@
 import 'materialize-css/dist/css/materialize.min.css';
 import { useState, useEffect } from 'react';
+import { Switch, Route } from 'react-router-dom';
 import { StyledLayout } from './styles';
 import { getPosts, createPost } from './services/post-service';
-import Header from './components/Header';
-import { Switch, Route } from 'react-router-dom';
-import Footer from './components/Footer';
-import FormPost from './components/PostForm';
-import About from './pages/About';
-import Index from './pages/Index';
 import PostForm from './components/PostForm';
+import ShowPost from './pages/ShowPost';
+import About from './pages/About';
+import Header from './components/Header';
+import Index from './pages/Index';
+import Footer from './components/Footer';;
+
+
 
 function App() {
 
@@ -36,8 +38,17 @@ console.log("coming from app.js:", postsState)
 					<About />
 				</Route>
 				<Route path="/posts">
-             <PostForm createPost={createPost}/>
+             <PostForm posts={postsState} createPost={createPost}/>
         </Route>
+        <Route
+           path="/:id"
+           render={(rp) => (
+             <ShowPost 
+                posts={postsState}
+                {...rp}
+             />
+           )}
+        />
 			</Switch>
 			<Footer />
 		</StyledLayout>

@@ -10,13 +10,6 @@ export default function Post({post}) {
 				<div className="card large">
 					<div className="card-image">
 						<img src={post.imageUrl} alt={post.text} />
-
-						<button
-							style={{ marginBottom: '10%', marginLeft: '10%' }}
-							className="btn-floating halfway-fab waves-effect waves-light red">
-                            delete
-							{/* <i className="material-icons">delete</i> */}
-						</button>
 					</div>
 					<div className="card-content">
 						<span
@@ -31,7 +24,7 @@ export default function Post({post}) {
 						</span>
 					</div>
 					<div className="card-action">
-						<Link to={`/${post.id}`}>Show More</Link>
+						<Link to="">Show More</Link>
 					</div>
 				</div>
 			</Grid>
