@@ -24,7 +24,7 @@ function App() {
    async function getAllPosts() {
     setPostsState(await getPosts());
   }
-console.log("coming from app.js:", postsState)
+  
   return (
     <StyledLayout>
 			<Header getAllPosts={getAllPosts}/>
