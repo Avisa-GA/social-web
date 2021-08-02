@@ -13,10 +13,9 @@ export default function Post({post}) {
 
 						<button
 							style={{ marginBottom: '10%', marginLeft: '10%' }}
-							className="btn-floating halfway-fab waves-effect waves-light red"
-							// onClick={() => handleDelete(food.id)}
-                            >
-							<i className="material-icons">delete</i>
+							className="btn-floating halfway-fab waves-effect waves-light red">
+                            delete
+							{/* <i className="material-icons">delete</i> */}
 						</button>
 					</div>
 					<div className="card-content">
