@@ -8,5 +8,23 @@ async function getPosts() {
     return response.json();
 };
 
+function uploadPostImage(data) {
+    return axios({
+      url: CLOUDINARY_URL,
+      method: "POST",
+      data
+    });
+}
 
-export {getPosts}
+async function createPost(post) {
+    return fetch(POST_URL, {
+        method: "POST",
+        headers: {
+            "Content-Type": "Application/json"
+        },
+        body: JSON.stringify(post)
+    })
+}
+
+
+export {getPosts, uploadPostImage, createPost}
