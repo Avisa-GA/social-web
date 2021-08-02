@@ -28,5 +28,12 @@ async function createPost(post) {
     })
 }
 
+// ************************* Delete Post
+async function deletePost(id) {
+    return fetch(POST_URL + "/" + id, {
+        method: "DELETE"
+    });
+}
 
-export {getPosts, uploadPostImage, createPost}
+
+export {getPosts, uploadPostImage, createPost, deletePost}

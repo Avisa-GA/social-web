@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link } from 'react-router-dom';
 
-export default function ShowPost({ posts, match, history }) {
+export default function ShowPost({ posts, match, history, handleDelete }) {
 
   const [post, setPost] = useState("");
 
@@ -36,12 +36,17 @@ console.log("post deatil from show page: ", post)
 						 <span className="card-title">{post.text}</span>
                          </>
                      </div>
-
+                     <button
+							style={{ marginBottom: '10%', marginLeft: '10%' }}
+							className="btn-floating halfway-fab waves-effect waves-light red"
+							onClick={() => handleDelete(post._id)}>
+							<Link style={{color: "whitesmoke"}} to='/posts'>delete</Link>
+						</button>
                  </div>
              )}
          </div>
          <div style={{ margin: 'auto', marginTop: '2%' }}>
-				<Link style={{ marginRight: '5%' }} to="/">
+				<Link style={{ marginRight: '5%' }} to="/posts">
 					Go Back
 				</Link>
          </div>

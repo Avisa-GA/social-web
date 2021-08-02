@@ -2,7 +2,7 @@ import 'materialize-css/dist/css/materialize.min.css';
 import { useState, useEffect } from 'react';
 import { Switch, Route } from 'react-router-dom';
 import { StyledLayout } from './styles';
-import { getPosts, createPost } from './services/post-service';
+import { getPosts, createPost, deletePost } from './services/post-service';
 import PostForm from './components/PostForm';
 import ShowPost from './pages/ShowPost';
 import About from './pages/About';
@@ -24,7 +24,12 @@ function App() {
    async function getAllPosts() {
     setPostsState(await getPosts());
   }
-  
+
+  async function handleDelete(postId) {
+    await deletePost(postId);
+    getAllPosts();
+  }
+
   return (
     <StyledLayout>
 			<Header getAllPosts={getAllPosts}/>
@@ -46,6 +51,7 @@ function App() {
              <ShowPost 
                 posts={postsState}
                 {...rp}
+                handleDelete={handleDelete}
              />
            )}
         />
