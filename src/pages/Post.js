@@ -24,7 +24,7 @@ export default function Post({post}) {
 						</span>
 					</div>
 					<div className="card-action">
-						<Link to={`/${post._id}`}>Show More</Link>
+						<Link style={{marginLeft: "40%"}} to={`/${post._id}`}>Show More</Link>
 					</div>
 				</div>
 			</Grid>

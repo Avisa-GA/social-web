@@ -7,7 +7,7 @@ export default function Posts({posts}) {
         <ul style={{ marginTop: '5%' }} className="collection with-header" alignItems="center">
 			<li className="collection-header">
 				<StyledTitle
-					style={{ fontSize: '24px', fontWeight: 'bold', color: '#00695c' }}>
+					style={{ fontSize: '24px', fontWeight: 'bold', color: '#00695c', marginLeft: "40%" }}>
 					Posts from all users
 				</StyledTitle>
 			</li>
