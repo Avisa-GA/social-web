@@ -10,8 +10,8 @@ const StyledSignupPage = styled(StyledMain)`
 
 export default function Signup(props) {
   return (
-    <StyledSignupPage>
+     <StyledSignupPage>
       <UserForm isLogin={false} />
-    </StyledSignupPage>
+      </StyledSignupPage>
   );
 }

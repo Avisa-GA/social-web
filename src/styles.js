@@ -49,45 +49,7 @@ export const StyledTitle = styled.p`
 
 
 
-export const StyledForm = styled.form`
-  legend {
-    display: flex;
-    padding: 1rem;
-    flex-direction: column;
-    max-width: 100rem;
-    margin: auto;
-    label {
-      display: flex;
-      font-size: 0.7rem;
-      justify-content: space-between;
-      align-items: center;
-    }
-    input {
-      border-radius: 5px;
-      height: 2.5rem;
-      font-size: 1.25rem;
-      font-weight: 700;
-      margin: 1rem 0 1rem 1rem;
-    }
-    input[type="file"] {
-      display: flex;
-      align-items: center;
-      font-size: 1rem;
-      max-width: 15rem;
-    }
-    input[type="submit"] {
-      background-color: dodgerblue;
-      color: #ffffff;
-      margin-left: 0;
-      &:hover {
-        background-color: #000000;
-      }
-      &:disabled {
-        background-color: #808080;
-      }
-    }
-  }
-`;
+
 
 export const StyledLayout = styled.div`
   display: flex;

@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { createUser, loginUser } from "../services/user-service";
 import { useHistory } from "react-router-dom";
-import { StyledForm } from "../styles";
 import GoogleButton from "./GoogleButton";
 
 export default function UserForm({ isLogin }) {
@@ -81,7 +80,7 @@ export default function UserForm({ isLogin }) {
   const { firstName, lastName, email, password, passwordConf } = formState;
 
   return (
-    <StyledForm onSubmit={isLogin ? handleLogin : handleSignup}>
+    <form style={{maxWidth: "300px", marginLeft: "20%", marginTop: "10%"}} onSubmit={isLogin ? handleLogin : handleSignup}>
       <legend>
         <h2>{isLogin ? "Login" : "Signup"}</h2>
         {formState.errors && <p>{formState.errors}</p>}
@@ -150,8 +149,10 @@ export default function UserForm({ isLogin }) {
           type="submit"
           value={isLogin ? "Login" : "Signup"}
         />
+        <br />
+        <br />
         <GoogleButton />
       </legend>
-    </StyledForm>
+    </form>
   );
 }
