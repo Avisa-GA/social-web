@@ -147,6 +147,7 @@ export default function UserForm({ isLogin }) {
         <input
           disabled={!matchingPassword()}
           type="submit"
+          className="btn white-text deep-orange darken-4"
           value={isLogin ? "Login" : "Signup"}
         />
         <br />
