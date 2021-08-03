@@ -54,18 +54,19 @@ export default function ShowPost({ posts, match, handleDelete, updatePost }) {
                  </div>
              )}
          </div>
-         <div style={{ margin: 'auto', marginTop: '2%' }}>
+         <div style={{ margin: 'auto', marginTop: '2%', marginLeft: "40%" }}>
 				<Link style={{ marginRight: '5%' }} to="/posts">
 					Go Back to List
 				</Link>
          </div>
     </div>
     )}
-    <div style={{ margin: 'auto', marginTop: '2%' }}>
-				<Link style={{ marginRight: '5%' }} to="/">
-					Go Back to Home page
+    <div style={{display: "flex", margin: 'auto', marginTop: '2%' }}>
+				<Link style={{ marginLeft: '5%' }} to="/">
+					Homepage
 				</Link>
 				<button
+                style={{marginLeft: "5%"}}
 					className="waves-effect waves-light btn deep-orange darken-4"
 					onClick={toggleOpenForm}>
 					{toggleForm ? 'Back to Show Page' : 'Edit Post'}

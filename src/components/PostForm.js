@@ -119,7 +119,7 @@ export default function PostForm({post, posts, updatePost, createPost}) {
     </div>
     <div>
       { post || posts.map((post, index) => {
-         return <div key={index}>
+         return <div style={{marginLeft: "45%"}} key={index}>
             <Link to={`/${post._id}`}>{post.text}</Link>
           </div>})}
     </div>

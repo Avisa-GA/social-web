@@ -4,7 +4,7 @@ import { StyledTitle } from '../styles';
 
 export default function Posts({posts}) {
     return (
-        <ul style={{ marginTop: '5%' }} className="collection with-header">
+        <ul style={{ marginTop: '5%' }} className="collection with-header" alignItems="center">
 			<li className="collection-header">
 				<StyledTitle
 					style={{ fontSize: '24px', fontWeight: 'bold', color: '#00695c' }}>
