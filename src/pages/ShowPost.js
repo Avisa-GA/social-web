@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { Link } from 'react-router-dom';
+import PostForm from "../components/PostForm";
 
-export default function ShowPost({ posts, match, history, handleDelete }) {
+export default function ShowPost({ posts, match, history, handleDelete, handleUpdate }) {
 
   const [post, setPost] = useState("");
+  const [toggleForm, setToggleForm] = useState(false);
 
   useEffect(() => {
       if (posts) {
@@ -15,9 +17,15 @@ export default function ShowPost({ posts, match, history, handleDelete }) {
       }
   }, [posts]);
 
+  const toggleOpenForm = () => {
+      setToggleForm(!toggleForm);
+  }
 
-console.log("post deatil from show page: ", post)
   return (
+      <>
+      {toggleForm ? (
+          <PostForm post={post} handleUpdate={handleUpdate} />
+      ) : (
     <div>
          <div>
              {post && (
@@ -38,7 +46,7 @@ console.log("post deatil from show page: ", post)
                      </div>
                      <button
 							style={{ marginBottom: '10%', marginLeft: '10%' }}
-							className="btn-floating halfway-fab waves-effect waves-light red"
+							className="btn-floating halfway-fab waves-effect waves-light deep-orange darken-4"
 							onClick={() => handleDelete(post._id)}>
 							<Link style={{color: "whitesmoke"}} to='/posts'>delete</Link>
 						</button>
@@ -47,9 +55,21 @@ console.log("post deatil from show page: ", post)
          </div>
          <div style={{ margin: 'auto', marginTop: '2%' }}>
 				<Link style={{ marginRight: '5%' }} to="/posts">
-					Go Back
+					Go Back to List
 				</Link>
          </div>
     </div>
+    )}
+    <div style={{ margin: 'auto', marginTop: '2%' }}>
+				<Link style={{ marginRight: '5%' }} to="/">
+					Go Back to Home page
+				</Link>
+				<button
+					className="waves-effect waves-light btn deep-orange darken-4"
+					onClick={toggleOpenForm}>
+					{toggleForm ? 'Back to Show Page' : 'Edit Post'}
+				</button>
+			</div>
+    </>
   );
 }
