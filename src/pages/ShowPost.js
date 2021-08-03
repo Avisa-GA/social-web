@@ -6,7 +6,6 @@ export default function ShowPost({ posts, match, history, handleDelete, handleUp
 
   const [post, setPost] = useState("");
   const [toggleForm, setToggleForm] = useState(false);
-  const history = useHistory();
 
   useEffect(() => {
       if (posts) {
