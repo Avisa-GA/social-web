@@ -61,7 +61,7 @@ export default function ShowPost({ posts, match, handleDelete, handleUpdate }) {
          </div>
     </div>
     )}
-    {/* <div style={{ margin: 'auto', marginTop: '2%' }}>
+    <div style={{ margin: 'auto', marginTop: '2%' }}>
 				<Link style={{ marginRight: '5%' }} to="/">
 					Go Back to Home page
 				</Link>
@@ -70,7 +70,7 @@ export default function ShowPost({ posts, match, handleDelete, handleUpdate }) {
 					onClick={toggleOpenForm}>
 					{toggleForm ? 'Back to Show Page' : 'Edit Post'}
 				</button>
-			</div> */}
+			</div>
     </>
   );
 }
