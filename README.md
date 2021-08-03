@@ -21,7 +21,7 @@ My Special Thank You to <strong>Daniel Scott</strong> for helping me to learn mo
 
 
 ## Getting Started
-[Click here](https://blissful-gates-bf7d64.netlify.app/login)
+[Click here](https://romantic-swanson-1a7733.netlify.app/)
 
 ## Future Enhancement
 - Users can follow each other and interact with each other.
