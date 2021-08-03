@@ -54,11 +54,11 @@ export const StyledForm = styled.form`
     display: flex;
     padding: 1rem;
     flex-direction: column;
-    max-width: 25rem;
+    max-width: 100rem;
     margin: auto;
     label {
       display: flex;
-      font-size: 1.2rem;
+      font-size: 0.7rem;
       justify-content: space-between;
       align-items: center;
     }
@@ -67,7 +67,7 @@ export const StyledForm = styled.form`
       height: 2.5rem;
       font-size: 1.25rem;
       font-weight: 700;
-      margin: 0.7rem 0 0.7rem 0.5rem;
+      margin: 1rem 0 1rem 1rem;
     }
     input[type="file"] {
       display: flex;
