@@ -80,7 +80,7 @@ export default function UserForm({ isLogin }) {
   const { firstName, lastName, email, password, passwordConf } = formState;
 
   return (
-    <form style={{maxWidth: "300px", marginLeft: "20%", marginTop: "10%"}} onSubmit={isLogin ? handleLogin : handleSignup}>
+    <form onSubmit={isLogin ? handleLogin : handleSignup}>
       <legend>
         <h2>{isLogin ? "Login" : "Signup"}</h2>
         {formState.errors && <p>{formState.errors}</p>}

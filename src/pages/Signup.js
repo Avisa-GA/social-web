@@ -6,6 +6,8 @@ const StyledSignupPage = styled(StyledMain)`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  margin-left: 10%;
+  margin-right: 10%;
 `;
 
 export default function Signup(props) {
