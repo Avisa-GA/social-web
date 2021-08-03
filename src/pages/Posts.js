@@ -14,14 +14,16 @@ export default function Posts({posts}) {
 			{posts.length < 1 ? (
 				'No results'
 			) : (
-				<li className="collection-item">
-					{posts.map((post) => (
+				<>
+					{posts.map((post, index) => (
+						<li key={index} className="collection-item">
 						<Post
 							key={post.id}
 							post={post}
 						/>
+						</li>
 					))}
-				</li>
+					</>
 			)}
 		</ul>
     )
