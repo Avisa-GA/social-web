@@ -12,7 +12,7 @@ export default function ShowPost({ posts, match, handleDelete, handleUpdate }) {
   useEffect(() => {
       if (posts) {
           const id = match.params.id;
-          const post = posts.find((f) => f.id == id);
+          const post = posts.find((f) => f._id == id);
           setPost(post)
       } else {
           history.push('/');
@@ -62,7 +62,7 @@ export default function ShowPost({ posts, match, handleDelete, handleUpdate }) {
          </div>
     </div>
     )}
-    <div style={{ margin: 'auto', marginTop: '2%' }}>
+    {/* <div style={{ margin: 'auto', marginTop: '2%' }}>
 				<Link style={{ marginRight: '5%' }} to="/">
 					Go Back to Home page
 				</Link>
@@ -71,7 +71,7 @@ export default function ShowPost({ posts, match, handleDelete, handleUpdate }) {
 					onClick={toggleOpenForm}>
 					{toggleForm ? 'Back to Show Page' : 'Edit Post'}
 				</button>
-			</div>
+			</div> */}
     </>
   );
 }
