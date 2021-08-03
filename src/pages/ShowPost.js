@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { Link } from 'react-router-dom';
 import PostForm from "../components/PostForm";
+import { useHistory } from "react-router-dom";
 
-export default function ShowPost({ posts, match, history, handleDelete, handleUpdate }) {
+export default function ShowPost({ posts, match, handleDelete, handleUpdate }) {
 
   const [post, setPost] = useState("");
   const [toggleForm, setToggleForm] = useState(false);
+  const history = useHistory();
 
   useEffect(() => {
       if (posts) {
