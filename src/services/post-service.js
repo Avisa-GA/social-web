@@ -37,7 +37,7 @@ async function deletePost(id) {
 
 // ************************* Update Post
 async function updatePost(post, id) {
-    return fetch(POST_URL + id, {
+    return fetch(POST_URL + "/" + id, {
         method: "PUT",
         headers: {
             "Content-Type": "Application/json"

@@ -3,6 +3,9 @@ import { useState, useEffect } from 'react';
 import { Switch, Route } from 'react-router-dom';
 import { StyledLayout } from './styles';
 import { getPosts, createPost, deletePost, updatePost } from './services/post-service';
+import { AuthProvider } from "./services/context";
+import Login from "./pages/Login";
+import Signup from "./pages/Signup";
 import PostForm from './components/PostForm';
 import ShowPost from './pages/ShowPost';
 import About from './pages/About';
@@ -29,14 +32,11 @@ function App() {
     await deletePost(postId);
     getAllPosts();
   }
-// * ******************************** Update
-async function handleUpdate(post, postId) {
-  await updatePost(post, postId);
-  getAllPosts();
-}
+
 
   return (
     <StyledLayout>
+      <AuthProvider>
 			<Header getAllPosts={getAllPosts}/>
 			<Switch>
 				<Route exact path="/">
@@ -44,11 +44,17 @@ async function handleUpdate(post, postId) {
                posts={postsState}
             />
 				</Route>
+        <Route path="/login">
+            <Login />
+        </Route>
+        <Route path="/signup">
+            <Signup />
+        </Route>
 				<Route path="/about">
 					<About />
 				</Route>
 				<Route path="/posts">
-             <PostForm posts={postsState} createPost={createPost} handleUpdate={handleUpdate}/>
+             <PostForm posts={postsState} createPost={createPost} />
         </Route>
         <Route
            path="/:id"
@@ -57,11 +63,13 @@ async function handleUpdate(post, postId) {
                 posts={postsState}
                 {...rp}
                 handleDelete={handleDelete}
+                updatePost={updatePost}
              />
            )}
         />
 			</Switch>
 			<Footer />
+      </AuthProvider>
 		</StyledLayout>
   );
 }

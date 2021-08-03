@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Link, useHistory } from 'react-router-dom';
 import PostForm from "../components/PostForm";
 
-export default function ShowPost({ posts, match, handleDelete, handleUpdate }) {
+export default function ShowPost({ posts, match, handleDelete, updatePost }) {
 
   const [post, setPost] = useState("");
   const [toggleForm, setToggleForm] = useState(false);
@@ -25,7 +25,7 @@ export default function ShowPost({ posts, match, handleDelete, handleUpdate }) {
   return (
       <>
       {toggleForm ? (
-          <PostForm post={post} handleUpdate={handleUpdate} />
+          <PostForm post={post} updatePost={updatePost} />
       ) : (
     <div>
          <div>

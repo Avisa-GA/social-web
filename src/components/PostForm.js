@@ -4,7 +4,7 @@ import { uploadPostImage } from "../services/post-service";
 import { useHistory } from "react-router-dom";
 import { Link } from 'react-router-dom';
 
-export default function PostForm(props) {
+export default function PostForm({post, posts, updatePost, createPost}) {
 
   const history = useHistory();
 
@@ -46,19 +46,20 @@ export default function PostForm(props) {
   async function handleSubmit(e) {
 
     e.preventDefault();
-    if (props.post) {
-      props.handleUpdate(
+    if (post) {
+     await updatePost(
         // specfically add img to formState
         { ...formState, imageUrl: imgFromCloud.data.secure_url },
-        props.post._id
+        post._id
       );
+      history.push('/')
     } else {
     const { text } = formState;
     
     if (!text) {
       setMessage("Enter all fields");
     } else {
-      await props.createPost({ ...formState, imageUrl: imgFromCloud.data.secure_url });
+      await createPost({ ...formState, imageUrl: imgFromCloud.data.secure_url });
       setFormState({
         text: "",
         imageUrl: "",
@@ -72,7 +73,7 @@ export default function PostForm(props) {
 
 
   return (
-   
+   <>
     <div style={{marginTop: "10%"}} className="container">
   
       <form>
@@ -83,6 +84,7 @@ export default function PostForm(props) {
           placeholder="What's happening?"
           value={formState.text}
           onChange={handleChange}
+          id="text"
         />
         {/* ************ Add image here */}
         <div className="file-field input-field">
@@ -111,15 +113,16 @@ export default function PostForm(props) {
           className="btn white-text deep-orange darken-4"
           onClick={handleSubmit}
         >
-          {props.post ? "edit" : "post"}
+          {post ? "edit" : "post"}
         </button>
       </form>
-
-      {props.posts.map((post, index) => {
+    </div>
+    <div>
+      { post || posts.map((post, index) => {
          return <div key={index}>
             <Link to={`/${post._id}`}>{post.text}</Link>
           </div>})}
     </div>
-    
+    </>
   );
 }
