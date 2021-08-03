@@ -4,7 +4,7 @@ import { uploadPostImage } from "../services/post-service";
 import { useHistory } from "react-router-dom";
 import { Link } from 'react-router-dom';
 
-export default function PostForm({ createPost, posts }) {
+export default function PostForm(props) {
 
   const history = useHistory();
 
@@ -46,13 +46,19 @@ export default function PostForm({ createPost, posts }) {
   async function handleSubmit(e) {
 
     e.preventDefault();
-
+    if (props.post) {
+      props.handleUpdate(
+        // specfically add img to formState
+        { ...formState, imageUrl: imgFromCloud.data.secure_url },
+        props.post._id
+      );
+    } else {
     const { text } = formState;
     
     if (!text) {
       setMessage("Enter all fields");
     } else {
-      await createPost({ ...formState, imageUrl: imgFromCloud.data.secure_url });
+      await props.createPost({ ...formState, imageUrl: imgFromCloud.data.secure_url });
       setFormState({
         text: "",
         imageUrl: "",
@@ -61,6 +67,7 @@ export default function PostForm({ createPost, posts }) {
       setFileName("");
       history.push("/");
     }
+  }
   }
 
 
@@ -104,11 +111,11 @@ export default function PostForm({ createPost, posts }) {
           className="btn white-text deep-orange darken-4"
           onClick={handleSubmit}
         >
-          post
+          {props.post ? "edit" : "post"}
         </button>
       </form>
 
-      {posts.map((post, index) => {
+      {props.posts.map((post, index) => {
          return <div key={index}>
             <Link to={`/${post._id}`}>{post.text}</Link>
           </div>})}
