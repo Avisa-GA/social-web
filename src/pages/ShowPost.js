@@ -12,7 +12,7 @@ export default function ShowPost({ posts, match, handleDelete, handleUpdate }) {
   useEffect(() => {
       if (posts) {
           const id = match.params.id;
-          const post = posts.find((f) => f._id == id);
+          const post = posts.find((f) => f.id == id);
           setPost(post)
       } else {
           history.push('/');
